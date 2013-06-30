@@ -1,0 +1,18 @@
+%html
+  %head
+    %title S3 POST Form
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %form{action: "https://uploads.pallit.io.s3.amazonaws.com/", enctype: "multipart/form-data", method: "post"}
+      %input{name: "key", type: "hidden", value: "${filename}"}/
+      %input{name: "AWSAccessKeyId", type: "hidden", value: 'AKIAJESGA77KJHTP6ELA'}/
+      %input{name: "acl", type: "hidden", value: "public-read"}/
+      / %input{name: "success_action_redirect", type: "hidden", value: "http://localhost/"}/
+      %input{name: "policy", type: "hidden", value: policy}/
+      %input{name: "signature", type: "hidden", value: signature}/
+      / %input{name: "Content-Type", type: "hidden", value: "image/jpeg"}/
+      / Include any additional input fields here
+      File to upload to S3:
+      %input{name: "file", type: "file"}/
+      %br/
+      %input{type: "submit", value: "Upload File to S3"}/
